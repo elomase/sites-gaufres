@@ -1,11 +1,17 @@
 document.getElementById('order-form').addEventListener('submit', async (event) => {
     event.preventDefault();
 
+    const firstName = document.getElementById('first-name').value;
+    const lastName = document.getElementById('last-name').value;
+    const phoneNumber = document.getElementById('phone-number').value;
     const waffleType = document.getElementById('waffle-type').value;
     const quantity = parseInt(document.getElementById('quantity').value, 10);
     const pickupTime = document.getElementById('pickup-time').value;
 
     const orderData = {
+        first_name: firstName,
+        last_name: lastName,
+        phone_number: phoneNumber,
         waffle_type: waffleType,
         quantity: quantity,
         pickup_time: pickupTime,
