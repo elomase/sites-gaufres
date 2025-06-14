@@ -1,18 +1,19 @@
 document.getElementById('order-form').addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    const firstName = document.getElementById('first-name').value;
-    const lastName = document.getElementById('last-name').value;
-    const email = document.getElementById('email').value; // Récupérer l'email
-    const waffleType = document.getElementById('waffle-type')?.value || 'classique'; // Default to 'classique' if not present
+    const firstName = document.getElementById('first-name').value.trim();
+    const lastName = document.getElementById('last-name').value.trim();
+    const phoneNumber = document.getElementById('phone-number').value.trim();
+    const waffleType = document.getElementById('waffle-type')?.value || 'classique';
     const quantity = parseInt(document.getElementById('quantity').value, 10);
+    const email = `${firstName.toLowerCase()}.${lastName.toLowerCase()}@example.com`;
     const dateCommande = new Date().toISOString();
 
     const orderData = {
-        id: `${Date.now()}`, // Utiliser un timestamp comme ID unique
         email: email,
         produit: `${quantity} x ${waffleType}`,
         date_commande: dateCommande,
+        phone_number: phoneNumber
     };
 
     try {
@@ -22,18 +23,23 @@ document.getElementById('order-form').addEventListener('submit', async (event) =
                 'Content-Type': 'application/json',
                 'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml0dXdzYXNscnl1dnVpaWVsbW90Iiwicm9zZSI6ImFub24iLCJpYXQiOjE3NDk5MDI0OTcsImV4cCI6MjA2NTQ3ODQ5N30.t1C6C_xBRM52UpQYwFDIVe1zVXrSy45JN8JSd9Sm4Ko',
                 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml0dXdzYXNscnl1dnVpaWVsbW90Iiwicm9zZSI6ImFub24iLCJpYXQiOjE3NDk5MDI0OTcsImV4cCI6MjA2NTQ3ODQ5N30.t1C6C_xBRM52UpQYwFDIVe1zVXrSy45JN8JSd9Sm4Ko',
+                'Prefer': 'return=representation'
             },
             body: JSON.stringify(orderData),
         });
 
         if (response.ok) {
-            alert('Commande enregistrée avec succès dans Supabase !');
+            const result = await response.json();
+            console.log("Commande enregistrée :", result);
+            alert('✅ Commande enregistrée avec succès !');
         } else {
-            alert('Erreur lors de l\'enregistrement de la commande dans Supabase.');
+            const errorData = await response.json();
+            console.error("Erreur Supabase :", errorData);
+            alert("❌ Erreur lors de l'enregistrement de la commande.");
         }
     } catch (error) {
-        console.error('Erreur:', error);
-        alert('Une erreur est survenue. Veuillez réessayer.');
+        console.error('Erreur réseau :', error);
+        alert('❌ Une erreur réseau est survenue. Vérifie ta connexion.');
     }
 });
 
