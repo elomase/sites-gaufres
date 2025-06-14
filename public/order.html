@@ -21,11 +21,28 @@
             <label for="phone-number">Numéro de Téléphone :</label>
             <input type="tel" id="phone-number" name="phone-number" required>
 
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+
             <label for="quantity">Nombre de Gaufres :</label>
             <input type="number" id="quantity" name="quantity" min="1" required>
 
+            <label for="waffle-type">Type de Gaufre :</label>
+            <select id="waffle-type" name="waffle-type" required>
+                <option value="classique">Gaufre Classique</option>
+                <option value="chocolat">Gaufre au Chocolat</option>
+                <option value="vanille">Gaufre à la Vanille</option>
+            </select>
+
             <button type="submit">Commander</button>
         </form>
+
+        <section id="orders-list">
+            <h2>Commandes Récentes</h2>
+            <ul id="orders-container">
+                <!-- Les commandes seront affichées ici dynamiquement -->
+            </ul>
+        </section>
     </main>
     <footer class="footer">
         <p>&copy; 2023 Délicieuses Gaufres - Commandez sur place ou à emporter</p>

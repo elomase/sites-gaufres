@@ -114,3 +114,27 @@ h3 {
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 6px 25px rgba(0, 0, 0, 0.15); /* Ombre plus marquée */
     transform: scale(1.05); /* Légère mise en avant */
 }
+
+#orders-list {
+    margin-top: 40px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+}
+
+#orders-list h2 {
+    color: #8b4513;
+    margin-bottom: 20px;
+}
+
+#orders-container {
+    list-style-type: none;
+    padding: 0;
+}
+
+#orders-container li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    color: #666;
+}
