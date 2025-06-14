@@ -1,19 +1,14 @@
 document.getElementById('order-form').addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    const firstName = document.getElementById('first-name').value.trim();
-    const lastName = document.getElementById('last-name').value.trim();
-    const phoneNumber = document.getElementById('phone-number').value.trim();
-    const waffleType = document.getElementById('waffle-type')?.value || 'classique';
-    const quantity = parseInt(document.getElementById('quantity').value, 10);
-    const email = `${firstName.toLowerCase()}.${lastName.toLowerCase()}@example.com`;
+    const email = document.getElementById('email').value.trim();
+    const waffleType = document.getElementById('waffle-type').value;
     const dateCommande = new Date().toISOString();
 
     const orderData = {
         email: email,
-        produit: `${quantity} x ${waffleType}`,
-        date_commande: dateCommande,
-        phone_number: phoneNumber
+        produit: waffleType,
+        date_commande: dateCommande
     };
 
     try {
@@ -70,6 +65,11 @@ async function fetchOrders() {
     } catch (error) {
         console.error('Erreur:', error);
     }
+}
+
+// Appeler fetchOrders au chargement de la page
+document.addEventListener('DOMContentLoaded', fetchOrders);
+document.addEventListener('DOMContentLoaded', fetchOrders);
 }
 
 // Appeler fetchOrders au chargement de la page
