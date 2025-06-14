@@ -20,33 +20,26 @@
                     <h3>Gaufre Classique</h3>
                     <p class="price">2.50€</p>
                     <p class="description">Notre délicieuse gaufre traditionnelle au sucre</p>
-                    <a href="order.html" class="order-button">Commander</a>
                 </div>
+                <!-- Ajoutez d'autres types de gaufres ici si nécessaire -->
             </div>
         </section>
 
         <section class="order-section">
-            <h2>Commander pour Plus Tard</h2>
+            <h2>Commander</h2>
             <form id="order-form">
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required>
+
                 <label for="waffle-type">Type de Gaufre :</label>
                 <select id="waffle-type" name="waffle-type" required>
                     <option value="classique">Gaufre Classique</option>
-                    <!-- Ajoutez d'autres types de gaufres ici si nécessaire -->
+                    <option value="chocolat">Gaufre au Chocolat</option>
+                    <option value="vanille">Gaufre à la Vanille</option>
                 </select>
-
-                <label for="quantity">Quantité :</label>
-                <input type="number" id="quantity" name="quantity" min="1" required>
-
-                <label for="pickup-time">Heure de Retrait :</label>
-                <input type="datetime-local" id="pickup-time" name="pickup-time" required>
 
                 <button type="submit">Commander</button>
             </form>
-        </section>
-
-        <section class="asbl-section">
-            <h2>Notre Engagement Caritatif</h2>
-            <p>Une partie de nos bénéfices est reversée à des organisations à but non lucratif (ASBL) qui œuvrent pour améliorer les conditions de vie des enfants défavorisés. En achetant nos gaufres, vous contribuez à cette noble cause.</p>
         </section>
     </main>
     <footer class="footer">
