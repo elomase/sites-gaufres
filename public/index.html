@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Commandez les meilleures gaufres en ligne. Gaufres classiques à 2.50€. Livraison rapide et paiement sécurisé.">
+    <title>Délicieuses Gaufres</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Nos Délicieuses Gaufres</h1>
+        <p>Les meilleures gaufres de la ville !</p>
+    </header>
+    <main class="container">
+        <section class="products">
+            <h2>Nos Gaufres</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <h3>Gaufre Classique</h3>
+                    <p class="price">2.50€</p>
+                    <p class="description">Notre délicieuse gaufre traditionnelle au sucre</p>
+                    <button class="order-button">Commander</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="order-section">
+            <h2>Commander pour Plus Tard</h2>
+            <form id="order-form">
+                <label for="waffle-type">Type de Gaufre :</label>
+                <select id="waffle-type" name="waffle-type" required>
+                    <option value="classique">Gaufre Classique</option>
+                    <!-- Ajoutez d'autres types de gaufres ici si nécessaire -->
+                </select>
+
+                <label for="quantity">Quantité :</label>
+                <input type="number" id="quantity" name="quantity" min="1" required>
+
+                <label for="pickup-time">Heure de Retrait :</label>
+                <input type="datetime-local" id="pickup-time" name="pickup-time" required>
+
+                <button type="submit">Commander</button>
+            </form>
+        </section>
+
+        <section class="asbl-section">
+            <h2>Notre Engagement Caritatif</h2>
+            <p>Une partie de nos bénéfices est reversée à des organisations à but non lucratif (ASBL) qui œuvrent pour améliorer les conditions de vie des enfants défavorisés. En achetant nos gaufres, vous contribuez à cette noble cause.</p>
+        </section>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2023 Délicieuses Gaufres - Commandez sur place ou à emporter</p>
+    </footer>
+    <script src="js/order.js"></script>
+</body>
+</html>
